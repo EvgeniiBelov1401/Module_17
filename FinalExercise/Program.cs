@@ -4,24 +4,32 @@ namespace FinalExercise
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void ShowResult(List<Account> accounts,ICalculationInterest calculationInterest)
         {
-            Random random = new Random();
-            var accountList = new List<Account>()
+            foreach (var account in accounts)
             {
-                new Account(random.Next(300,1500)),
-                new Account(random.Next(300,1500)),
-                new Account(random.Next(300,1500)),
-            };
-
-            Console.WriteLine("Процентные ставки для:");
-            foreach (var account in accountList)
-            {
-                account.Calculate(new UsualCalculation());
+                account.Calculate(calculationInterest);
             }
-            foreach (var account in accountList)
+        }
+        static void Main(string[] args)
+        {           
+            while (true)
             {
-                account.Calculate(new SalaryCalculation());
+                Random random = new Random();
+                var accountList = new List<Account>()
+                {
+                    new Account(random.Next(300,1500)),
+                    new Account(random.Next(300,1500)),
+                    new Account(random.Next(300,1500)),
+                };
+
+                Console.WriteLine("Процентные ставки для:");
+                ShowResult(accountList,new UsualCalculation());
+                ShowResult(accountList, new SalaryCalculation());
+                
+
+                Console.ReadLine();
+                Console.Clear();
             }
 
 
