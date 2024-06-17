@@ -10,7 +10,7 @@ namespace FinalExercise.Modules
     {
         private const double _koef = 0.4;
         private string CalculationName { get; set; }
-        public double Interest { private get; set; }
+        private double Interest { get; set; }
         public UsualCalculation()
         {
             CalculationName = "Процентная ставка обычного аккаунта";
