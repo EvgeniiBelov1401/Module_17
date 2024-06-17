@@ -8,7 +8,7 @@ namespace FinalExercise.Modules
 {
     internal class Account
     {
-        public double Balance { get; set; }        
+        private double Balance { get; set; }        
 
         public Account(double balance)
         {
